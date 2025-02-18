@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ride Rush</title>
+
+  <!-- Font -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' />
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' />
+
+  <!-- css -->
+  
+</head>
+
+<body class="bg-default">
+  <div id="root">
+
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    let toggle = document.getElementById('toggle');
+    toggle.click(function(){
+      document.getElementById('nav-list').classList.add('d-flex');
+      console.log("clicked");
+      
+    })
+  </script>
+</body>
+
+</html>

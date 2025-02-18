@@ -1,0 +1,6 @@
+@media only screen and (min-width:1400px) {
+    .container {
+        width: 1400px;
+        border: 2px solid red;
+    }
+}
