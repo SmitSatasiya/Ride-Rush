@@ -1,6 +1,82 @@
 @media only screen and (min-width:1400px) {
     .container {
         width: 1400px;
-        border: 2px solid red;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .nav {
+        position: fixed;
+        bottom: -100vh;
+        /* Initially hidden below the screen */
+        left: 0;
+        width: 100%;
+        /* height: 50vh; Adjust height as needed */
+        background: white;
+        box-shadow: 0px -8px 20px rgba(27, 27, 27, 0.08);
+        transition: bottom 0.3s ease-in-out;
+        /* Smooth transition */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav.slide-in {
+        bottom: 0;
+        /* Slide in when toggled */
+    }
+
+    .nav.slide-out {
+        bottom: -100vh;
+        /* Slide out when toggled */
+    }
+
+    nav ul {
+        /* flex-direction: column !important; */
+        /* width: 100%; */
+        text-align: center;
+    }
+
+    nav li {
+        padding: 15px;
+    }
+
+    nav li a {
+        color: #181a1f !important;
+        font-size: 22px;
+        font-weight: 500;
+    }
+
+    .toggle-box {
+        display: flex;
+    }
+
+    .call-box {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .toggle-box {
+        display: none;
+
+    }
+
+    .nav {
+        display: flex !important;
+        
+    }
+    .nav ul {
+        
+    }
+    
+    .nav.slide-in {
+        bottom: 0px;
+
+    }
+
+    .nav.slide-out {
+        bottom: 0px;
+
     }
 }
