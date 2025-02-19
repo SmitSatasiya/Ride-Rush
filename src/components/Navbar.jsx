@@ -8,14 +8,12 @@ function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const isLoggedIn = LoggedIn();
 
-    // Handle screen resize for mobile detection
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 900);
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Handle scrolling effect for navbar shadow
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 10);
         window.addEventListener("scroll", handleScroll);
@@ -25,82 +23,109 @@ function Navbar() {
     const handleToggle = () => setIsNavVisible((prev) => !prev);
 
     return (
-        <>
-
-            <div className={`full-size-container ${isScrolled ? "scrolled" : ""}`}>
-
-                <div className="container">
-                    <div className="navbar">
-                        <div className="logo">
-                            <div className="img">
-                                <img src="/images/icons/logo.png" alt="Ride Rush Logo" />
-                            </div>
-                            <h1>Ride Rush</h1>
+        <div className={`full-size-container ${isScrolled ? "scrolled" : ""}`}>
+            <div className="container">
+                <div className="navbar">
+                    <div className="logo">
+                        <div className="img">
+                            <img src="/images/icons/logo.png" alt="Ride Rush Logo" />
                         </div>
+                        <h1>Ride Rush</h1>
+                    </div>
 
-                        <nav className={`nav d-flex ${isNavVisible ? "slide-in" : "slide-out"}`}>
-                            <ul className="d-flex">
-                                <li>
-                                    <NavLink to="/" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                                        {isMobile ? <HomeIcon /> : "Home"}
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/booking" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                                        {isMobile ? <BookingIcon /> : "Booking"}
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/inbox" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                                        {isMobile ? <InboxIcon /> : "Inbox"}
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/wallet" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                                        {isMobile ? <WalletIcon /> : "Wallet"}
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/profile" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                                        {isMobile ? <ProfileIcon /> : "Profile"}
-                                    </NavLink>
-                                </li>
-                            </ul>
-                        </nav>
-
-                        <div className="nav-profile d-flex">
-                            <a className="call-box d-flex" href="tel:+02613112005">
-                                <div className="svg-box">
-                                    <img src="/images/icons/call.png" alt="Call" loading="lazy" />
-                                </div>
-                                {!isMobile && <h4>+0261 3112005</h4>}
-                            </a>
-
-                            {isLoggedIn ? (
-                                <NavLink to="/profile" className="user-profile">
-                                    <div className="img-box">
-                                        <img src="/images/background/profile.webp" alt="Profile" loading="lazy" />
-                                    </div>
-                                </NavLink>
+                    <nav className={`nav d-flex ${isNavVisible ? "slide-in" : "slide-out"}`}>
+                        <ul className="d-flex">
+                            {isMobile ? (
+                                <>
+                                    <li>
+                                        <NavLink to="/" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                                            <HomeIcon />
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/booking" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                                            <BookingIcon />
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/inbox" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                                            <InboxIcon />
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/wallet" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                                            <WalletIcon />
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/profile" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                                            <ProfileIcon />
+                                        </NavLink>
+                                    </li>
+                                </>
                             ) : (
-                                <div className="login-container d-flex">
-                                    <NavLink to="/login" className="btn">Log In</NavLink>
-                                </div>
+                                <>
+                                    <li>
+                                        <NavLink to="/" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                                            Home
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/booking" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                                            Booking
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/services" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                                            Services
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/about" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                                            About
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/contact" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                                            Contact
+                                        </NavLink>
+                                    </li>
+                                </>
                             )}
+                        </ul>
+                    </nav>
 
-                            <div onClick={handleToggle} id="toggle" className="toggle-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" d="M15 4H1V2h14zm0 5H1V7h14zM1 14h14v-2H1z" /></svg>
+                    <div className="nav-profile d-flex">
+                        <a className="call-box d-flex" href="tel:+02613112005">
+                            <div className="svg-box">
+                                <img src="/images/icons/call.png" alt="Call" loading="lazy" />
                             </div>
+                            {!isMobile && <h4>+0261 3112005</h4>}
+                        </a>
+
+                        {isLoggedIn ? (
+                            <NavLink to="/profile" className="user-profile">
+                                <div className="img-box">
+                                    <img src="/images/background/profile.webp" alt="Profile" loading="lazy" />
+                                </div>
+                            </NavLink>
+                        ) : (
+                            <div className="login-container d-flex">
+                                <NavLink to="/login" className="btn">Log In</NavLink>
+                            </div>
+                        )}
+
+                        <div onClick={handleToggle} id="toggle" className="toggle-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+                                <path fill="currentColor" d="M15 4H1V2h14zm0 5H1V7h14zM1 14h14v-2H1z" />
+                            </svg>
                         </div>
                     </div>
                 </div>
             </div>
-            
-        </>
+        </div>
     );
 }
-
-// Icon Components
 const HomeIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path fill="currentColor" d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3z" />
