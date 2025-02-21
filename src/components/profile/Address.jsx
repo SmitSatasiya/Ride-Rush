@@ -140,7 +140,7 @@ function Address() {
             <input type="text" name="state" value={formData.state} onChange={handleChange} placeholder="State" required />
             <input type="text" name="pincode" value={formData.pincode} onChange={handleChange} placeholder="Pincode" required />
             <div className="button">
-              <button type='submit'>Add Address</button>
+              <button type='submit' className='btn-hover'>Add Address</button>
             </div>
           </form>
         </div>

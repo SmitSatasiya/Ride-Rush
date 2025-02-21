@@ -31,7 +31,7 @@ function EditProfile() {
           <input type="text" name="phone" onChange={handleChange} placeholder="Phone Number" required />
           
           <div className="button">
-            <button type='submit'>Update</button>
+            <button type='submit' className='btn-hover'>Update</button>
           </div>
         </form>
       </div>
@@ -58,7 +58,7 @@ function EditProfile() {
           <input type="text" name="confirmpassword" onChange={handleChange} placeholder="Confirm Password" required />
 
           <div className="button">
-            <button type='submit'>Update Password</button>
+            <button type='submit' className='btn-hover'>Update Password</button>
           </div>
         </form>
       </div>
@@ -97,7 +97,7 @@ function UpdatePassword() {
           <input type="text" name="confirmpassword" onChange={handleChange} placeholder="Confirm Password" required />
 
           <div className="button">
-            <button type='submit'>Update Password</button>
+            <button type='submit' className='btn-hover'>Update Password</button>
           </div>
         </form>
       </div>

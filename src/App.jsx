@@ -9,7 +9,6 @@ function App() {
     <>
       <Navbar />
       <Routes>
-
         <Route path="/profile/*" element={<Profile />} />
       </Routes>
     </>
